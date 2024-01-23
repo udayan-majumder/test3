@@ -32,7 +32,7 @@ a{
   height: 100%;
   width: 100%;
   position: relative;
-  background-image: url(./assets/final-bg.jpg);
+  background-image: url(/assets/final-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   /* border-radius: 15px; */
@@ -60,7 +60,7 @@ a{
 .nav-logo{
   height: 70px;
   width: 70px;
-  background-image: url(./assets/logo.png);
+  background-image: url(/assets/logo.png);
   background-size: cover;
 }
 .shop-btn{
@@ -72,7 +72,7 @@ a{
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  background-image: url(./assets/shopping-icon.png);
+  background-image: url(/assets/shopping-icon.png);
   background-repeat: no-repeat;
   background-size:cover;
   /* margin-left: 120px; */
