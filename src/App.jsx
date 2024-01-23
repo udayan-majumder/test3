@@ -67,7 +67,7 @@ const getdata= ()=>{
               Object.values(price_arr).map((new_data,index)=>(
                 <div key= {index} className="product-items-card">
                   <div className="img-container">
-                  <img src={new_data.product.image} alt="" /> </div>
+                  <img src={new_data.(Object.values(product)).image} alt="" /> </div>
                   <div className="product-details-div">
                     <div className="name-price-details-div">
                       <div className="product-name">{new_data.product.name}</div>
