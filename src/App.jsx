@@ -17,7 +17,7 @@ function App() {
  }
 
 const getdata= ()=>{
-  fetch('/src/price.json',{headers:{
+  fetch('src/price.json',{headers:{
 'Content-type':'application/json',
 'Accept':'appliaction/json'
   }}).then((value)=>{
