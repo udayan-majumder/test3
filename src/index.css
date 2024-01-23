@@ -50,7 +50,7 @@ a{
   /* border-radius: 50px; */
 }
 .navbar{
-  height:100px;
+  height:60px;
   width: 100%;
   /* background-color: aqua; */
   display: flex;
@@ -58,14 +58,14 @@ a{
   align-items: center;
 }
 .nav-logo{
-  height: 90px;
-  width: 90px;
+  height: 70px;
+  width: 70px;
   background-image: url(./assets/logo.png);
   background-size: cover;
 }
 .shop-btn{
-  height: 55px;
-  width: 55px;
+  height: 45px;
+  width: 45px;
   border: none ;
   outline: none;
   display: flex;
@@ -85,6 +85,7 @@ a{
   /* justify-content: spac; */
   justify-content:right;
   align-items: center;
+  padding: 0px 5px;
 }
 .user-info{
   height: 100%;
@@ -92,20 +93,21 @@ a{
   display: flex;
   /* flex-direction:; */
   justify-content:right;
-  gap:40px;
+  gap:30px;
     align-items: center;
+    padding: 0px 5px;
 }
 .userlogo{
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   background-color: #fff;
   border-radius: 40px;
   /* border: 1pt solid #111111; */
   box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
 }
 .login-btn{
-  height: 40px;
-  width: 90px;
+  height: 35px;
+  width: 80px;
   outline: none;
   border: none;
   /* outline: 0.5em; */
@@ -133,11 +135,11 @@ a{
   width: auto; */
   font-family: "Playfair Display";
   font-weight: 700;
-  font-size: 100px;
+  font-size: 90px;
   color: #649e92ff;
 }
 .s{
-  font-size: 130px;
+  font-size: 120px;
   margin-left: 1%;
   margin-top: -3%;
 }
@@ -178,7 +180,7 @@ a{
 }
 .heading-text{
   font-family: "Playfair Display";
-  font-size: 90px;
+  font-size: 60px;
  
   color:#649e92ff;
   padding: 30px 0px;
@@ -219,8 +221,8 @@ border-radius: 15px;
  
 }
 .product-items-card img{
-  height: 280px;
-  width: 280px;
+  height: 250px;
+  width: 250px;
   border-radius: 15px;
 }
 .product-details-div{
