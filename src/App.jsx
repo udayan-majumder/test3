@@ -1,23 +1,56 @@
 import { useEffect, useRef, useState } from 'react'
+import { initializeApp } from "firebase/app";
+import{
+getAuth,
+GoogleAuthProvider,
+signInWithPopup,
+onAuthStateChanged,
+signOut} from "firebase/auth"
+import { getAnalytics } from "firebase/analytics";
 
 function App() {
-  const [window_count, setCount] = useState(1)
+  const [window_count, setCount] = useState(0)
   const[shopping_count,setshopcount]=useState(0);
   const[price_arr,setPriceList]=useState([])
+  const[cart_window,setcartwindow]=useState(0)
+  const[cart_items,setcartitems]=useState([])
+  const [addbtn,updateaddbtn]=useState(0)
   const product_positon= useRef(0);
- const scrollToLeft =()=>{
-  if (product_positon.current) {
-    product_positon.current.scrollLeft += 80; // Adjust as needed
-  }
- }
- const scrollToRight =()=>{
-  if (product_positon.current) {
-    product_positon.current.scrollLeft -= 80; // Adjust as needed
-  }
- }
+  const [carttext,settext]=useState('ADD')
+  
+ 
+  const firebaseConfig = {
+    apiKey: "AIzaSyDj-KemQXJCgoVivjSvqHR7TaBNrGgTCKg",
+    authDomain: "ecoconv-fb137.firebaseapp.com",
+    projectId: "ecoconv-fb137",
+    storageBucket: "ecoconv-fb137.appspot.com",
+    messagingSenderId: "650191769753",
+    appId: "1:650191769753:web:f784001c243e53e195e808",
+    measurementId: "G-TC9ZG6D548"
+  };
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const auth = getAuth(app);
+  const [user,setUser]=useState(getAuth(app).currentUser)
 
+  useEffect(()=>{
+     const unsuscribe= auth.onAuthStateChanged((user)=>{
+      setUser(user)
+    })
+    return ()=>{unsuscribe()}
+  },[])
+  function signin() {
+    const popup = new GoogleAuthProvider(app);
+    signInWithPopup(auth, popup);
+    setCount(1)
+  }
+
+  function signout() {
+    signOut(auth);
+  }
+  
 const getdata= ()=>{
-  fetch('/price.json',{headers:{
+  fetch('price.json',{headers:{
 'Content-type':'application/json',
 'Accept':'appliaction/json'
   }}).then((value)=>{
@@ -28,16 +61,57 @@ const getdata= ()=>{
 }
 
 
+const scrollToLeft =()=>{
+  if (product_positon.current) {
+    product_positon.current.scrollLeft += 80; // Adjust as needed
+  }
+ }
+ const scrollToRight =()=>{
+  if (product_positon.current) {
+    product_positon.current.scrollLeft -= 80; // Adjust as needed
+  }
+ }  
+
+ const addtocart = (productIndex) => {
+  // Create a new array with the existing cart_items and the new productIndex added to it
+  const newCartItems = [...cart_items, productIndex];
   
-  useEffect(()=>{
-    getdata()
-  },[])
+  // Update the cart_items state with the new array
+  setcartitems(newCartItems);
+};
+
+
+ useEffect(()=>{
+  getdata()
+},[])
 // console.log(price_arr[0].product.name)
+if(user===null){
+return (
+  <div className="login-div">
+  <div className="background">
+    <div className="background-layer">
+      <div className="login-items-holder">
+      <div className="login-image"></div>
+       <div className="login-details">
+        <div className="big-text">Welcome User</div>
+        <div className="small-text">Welcome to our online sanctuary,<br></br> where every click opens the door to new possibilities.</div>
+        <div className="login-logo"></div>
+        <button className='login-btn-signin' onClick={()=>{
+          if(window_count==0){
+            signin()
+          }
+        }}>Continue with Google</button>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+)
+}
   return (
     <>
       <div className="main">
-        <div className="login-div"></div>
-        <div className={(window_count===1)? "sub-main" : "blank"}>
+        <div className="sub-main">
           <div className="cover-bg">
           <div className="sub-cover-bg">
             <div className="navbar">
@@ -45,8 +119,11 @@ const getdata= ()=>{
               <div className="button-function">
                 <button className="shop-btn" onClick={()=>setCount(2)}></button>
                 <div className="user-info">
-                  <div className="userlogo"></div>
-                  <button className="login-btn" onClick={()=>setCount(0)}>Sign out</button>
+                  <img className="userlogo" src={auth.currentUser.photoURL}></img>
+                  <button className="login-btn" onClick={()=>{
+                    setCount(0)
+                    signout()
+                    }}>Sign out</button>
                 </div>
               </div>
             </div>
@@ -64,18 +141,30 @@ const getdata= ()=>{
           <div className="products-div" ref={product_positon}>
            
            {
-              Object.values(price_arr).map((new_data)=>(
+              Object.values(price_arr).map((new_data,index)=>(
                 Object.values(new_data).map((final)=>(
-                  Object.values(new_data).map((pricel,index)=>(
-                <div key= {index} className="product-items-card">
+                  Object.values(new_data).map((pricel)=>(
+                <div key={index} className="product-items-card">
                   <div className="img-container">
-                  <img src={final.image} alt="" /> </div>
+                  <img src={final.image} alt="" /></div>
                   <div className="product-details-div">
                     <div className="name-price-details-div">
                       <div className="product-name">{final.name}</div>
                       <div className="product-price">{final.price.i} INR</div>
                     </div>
-                    <button className="Add-to-cart-btn">ADD</button>
+                    <button className="Add-to-cart-btn" onClick={()=>{
+                     addtocart(final.productindex);
+                     if(addbtn==0){
+                      updateaddbtn(1)
+                     }
+                     else{
+                      updateaddbtn(0)
+                     }
+                      
+                    }}>
+{cart_items.includes(final.productindex)? "DONE" : "ADD"}
+
+                    </button>
                   </div>
                 </div>
               ))))))
@@ -88,10 +177,12 @@ const getdata= ()=>{
            <button className='scroll-btn' onClick={scrollToLeft}>Next</button>
            </div>
           </div>
+
         </div>
       </div>
     </>
   )
 }
+
 
 export default App
