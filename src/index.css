@@ -20,9 +20,64 @@ a{
   width: 100%;
 }
 .login-div{
-  display: none;
+  height: 100vh;
+  width:100%;
+  background-color:#649e92ff;
+  display: flex;
+  justify-content: center;
+}
+.background-layer{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
 }
 
+.login-items-holder{
+background-color:#ffff;
+height:80%;
+width:700px;
+border-radius: 15px;
+box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
+display: flex;
+}
+.login-image{
+  height: 100%;
+  width: 40%;
+  background-image: url(./assets/login-image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius:15px ;
+}
+.login-details{
+  height: 100%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.big-text{
+  color: #649e92ff;
+  font-size: 45px;
+  font-family: "Playfair Display";
+  font-weight: 500;
+}
+.small-text{
+  color: rgb(117, 185, 171);
+  font-size: 14px;
+  text-align: center;
+  font-family: "Ubuntu";
+}
+.login-logo{
+  height: 80px;
+  width: 80px;
+  /* background-color: cyan; */
+  background-image: url(./assets/logo.png);
+  background-size: contain;
+}
 .sub-main{
   height: 100%;
   width: 100%;
@@ -32,7 +87,7 @@ a{
   height: 100%;
   width: 100%;
   position: relative;
-  background-image: url(/assets/final-bg.jpg);
+  background-image: url(./assets/final-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   /* border-radius: 15px; */
@@ -60,7 +115,7 @@ a{
 .nav-logo{
   height: 70px;
   width: 70px;
-  background-image: url(/assets/logo.png);
+  background-image: url(./assets/logo.png);
   background-size: cover;
 }
 .shop-btn{
@@ -72,7 +127,7 @@ a{
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  background-image: url(/assets/shopping-icon.png);
+  background-image: url(./assets/shopping-icon.png);
   background-repeat: no-repeat;
   background-size:cover;
   /* margin-left: 120px; */
@@ -104,6 +159,15 @@ a{
   border-radius: 40px;
   /* border: 1pt solid #111111; */
   box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
+}
+.login-btn-signin{
+  height: 40px;
+  width: 150px;
+  border: none;
+  background-color: #649e92ff;
+  color: #fff;
+  font-family:'Rubik';
+  border-radius: 40px;
 }
 .login-btn{
   height: 35px;
@@ -248,7 +312,9 @@ border-radius: 15px;
   border-radius: 15px;
   font-family: "Poppins";
   letter-spacing: 1px;
+  transition:1s linear ease-in-out;
 }
+
 .next-prev-btns{
   height: 20px;
   width: 100px;
