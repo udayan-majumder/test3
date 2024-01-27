@@ -2,76 +2,82 @@
 
 "0":{"product":{
     "name":"Polyethylene-Terephthalate ",
-    "image":"/assets/PET(icon).jpg",
+    "image":"./src/assets/PET(icon).jpg",
      "price":{
-        "i":50,
-        "ii":53,
-        "iii":55,
-        "iv":58,
-        "v":62
+        "i":"50",
+        "ii":"53",
+        "iii":"55",
+        "iv":"58",
+        "v":"62"
      },
-     "class":"grade-btn"
+     "class":"grade-btn",
+     "productindex":0
      
 }},
 "1":{"product":{
    "name":"High-Density-Polyethylene",
-    "image":"/assets/HDPE(icon).jpg",
+    "image":"./src/assets/HDPE(icon).jpg",
     "price":{
-       "i":100,
-       "ii":103,
-       "iii":106,
-       "iv":108,
-       "v":112
+       "i":"100",
+       "ii":"103",
+       "iii":"106",
+       "iv":"108",
+       "v":"112"
     },
-    "class":"grade-btn"
+    "class":"grade-btn",
+    "productindex":1
 }},
 "2":{"product":{
    "name":"Polyvinyl-Chloride ",
-    "image":"/assets/PVC(icon).jpg",
+    "image":"./src/assets/PVC(icon).jpg",
     "price":{
-       "i":90,
-       "ii":93,
-       "iii":95,
-       "iv":98,
-       "v":100
+       "i":"90",
+       "ii":"93",
+       "iii":"95",
+       "iv":"98",
+       "v":"100"
     },
-    "class":"grade-btn"
+    "class":"grade-btn",
+    "productindex":2
 }},
 "3":{"product":{
    "name":"Low-Density-Polyethylene ",
-    "image":"/assets/LDPE(icon).jpg",
+    "image":"./src/assets/LDPE(icon).jpg",
     "price":{
-       "i":105,
-       "ii":108,
-       "iii":112,
-       "iv":114,
-       "v":117
+       "i":"105",
+       "ii":"108",
+       "iii":"112",
+       "iv":"114",
+       "v":"117"
     },
-    "class":"grade-btn"
+    "class":"grade-btn",
+    "productindex":3
 }},
 "4":{"product":{
    "name":"Polypropylene",
-    "image":"/assets/PP(icon).jpg",
+    "image":"./src/assets/PP(icon).jpg",
     "price":{
-       "i":85,
-       "ii":86,
-       "iii":89,
-       "iv":91,
-       "v":94
+       "i":"85",
+       "ii":"86",
+       "iii":"89",
+       "iv":"91",
+       "v":"94"
     },
-    "class":"grade-btn"
+    "class":"grade-btn",
+    "productindex":4
 }},
 "5":{"product":{
    "name":"Polystyrene",
-    "image":"/assets/PS(icon).jpg",
+    "image":"./src/assets/PS(icon).jpg",
     "price":{
-       "i":100,
-       "ii":104,
-       "iii":105,
-       "iv":109,
-       "v":114
+       "i":"100",
+       "ii":"104",
+       "iii":"105",
+       "iv":"109",
+       "v":"114"
     },
-    "class":"grade-btn"
+    "class":"grade-btn",
+    "productindex":5
 }}
 
 }
